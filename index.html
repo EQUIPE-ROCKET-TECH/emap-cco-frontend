@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COPI | Acompanhamento da Movimentação Rodoviária</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="COPI - página inicial">
+        <span class="brand-mark">C</span>
+        <span><strong>COPI</strong><small>Terminal Portuário</small></span>
+      </a>
+
+      <nav class="navigation" aria-label="Menu principal">
+        <button class="nav-link active" data-page="overview"><span>⌂</span> Visão Geral</button>
+        <button class="nav-link" data-page="movements"><span>⇄</span> Movimentações</button>
+        <button class="nav-link" data-page="carriers"><span>▣</span> Transportadoras</button>
+        <button class="nav-link" data-page="reports"><span>▤</span> Relatórios</button>
+        <button class="nav-link" data-page="settings"><span>⚙</span> Configurações</button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <span class="live-dot"></span>
+        <div><strong>Monitoramento</strong><small>Dados demonstrativos</small></div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">CENTRO DE CONTROLE OPERACIONAL</p>
+          <h1 id="page-title">Acompanhamento da Movimentação Rodoviária</h1>
+          <p class="subtitle" id="page-subtitle">Visão geral da operação em um só lugar</p>
+        </div>
+        <div class="user-area">
+          <div class="date-box"><span>◷</span><div><strong id="current-date">20 out. 2026</strong><small id="current-time">Atualizado agora</small></div></div>
+          <div class="avatar">CCO</div>
+          <div class="user-label"><strong>CCO</strong><small>Centro de Controle</small></div>
+        </div>
+      </header>
+
+      <section class="page active" id="page-overview">
+        <div class="filters filter-overview">
+          <label>Período<select id="period-filter"><option value="today">Hoje</option><option value="week">Últimos 7 dias</option><option value="month">Últimos 30 dias</option></select></label>
+          <label>Transportadora<select id="carrier-filter"><option value="all">Todas</option><option>Transporte Alfa</option><option>Translog</option><option>Veloz Cargas</option><option>Rota Sul</option><option>Logística Brasil</option></select></label>
+          <label>Tipo de operação<select id="operation-filter"><option value="all">Todas</option><option>Recebimento</option><option>Expedição</option></select></label>
+          <label>Modal<select id="modal-filter"><option>Rodoviário</option><option>Ferroviário</option></select></label>
+          <button class="button button-light" id="clear-filters">↻ Limpar filtros</button>
+        </div>
+
+        <div class="kpi-grid">
+          <article class="kpi-card"><div class="kpi-icon blue">⇄</div><div class="kpi-label">Veículos no fluxo <span class="info">i</span></div><div class="kpi-value" id="kpi-flow">128</div><div class="kpi-note positive">↑ 12% <span>em relação ao período anterior</span></div></article>
+          <article class="kpi-card"><div class="kpi-icon purple">◷</div><div class="kpi-label">Tempo médio de permanência</div><div class="kpi-value">42 <small>min</small></div><div class="kpi-note positive">↓ 18% <span>em relação ao período anterior</span></div></article>
+          <article class="kpi-card"><div class="kpi-icon green">⌁</div><div class="kpi-label">Prancha (t/h)</div><div class="kpi-value">85 <small>t/h</small></div><div class="kpi-note positive">↑ 7% <span>em relação ao período anterior</span></div></article>
+          <article class="kpi-card alert-card"><div class="kpi-icon red">!</div><div class="kpi-label">Alertas e desvios <span class="alert-count">3</span></div><div class="alert-line"><strong>Permanência elevada</strong><small>Placa LXP-4A23 · 2h 18min</small></div><div class="alert-line"><strong>Fila na balança</strong><small>5 veículos aguardando</small></div><div class="alert-line"><strong>Veículo fora do horário</strong><small>Placa QWF-7F56 · entrada 07:30</small></div></article>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="panel chart-panel">
+            <div class="panel-heading"><div><h2>Fluxo de veículos no terminal</h2><p>Movimentações ao longo do dia</p></div><span class="pill">Hoje</span></div>
+            <div class="chart-wrap"><canvas id="flowChart" aria-label="Gráfico de fluxo de veículos"></canvas></div>
+          </article>
+          <article class="panel carrier-chart-panel">
+            <div class="panel-heading"><div><h2>Veículos por transportadora</h2><p>Distribuição das movimentações</p></div></div>
+            <div class="donut-layout"><div class="donut"><strong>128</strong><span>veículos</span></div><div class="legend"><span><i class="dot dot-blue"></i>Transporte Alfa <b>28%</b></span><span><i class="dot dot-teal"></i>Translog <b>18%</b></span><span><i class="dot dot-orange"></i>Veloz Cargas <b>16%</b></span><span><i class="dot dot-purple"></i>Rota Sul <b>12%</b></span><span><i class="dot dot-gray"></i>Outras <b>26%</b></span></div></div>
+          </article>
+          <article class="panel latest-panel">
+            <div class="panel-heading"><div><h2>Últimas movimentações</h2><p>Registros demonstrativos</p></div><button class="text-button" data-goto="movements">Ver todas →</button></div>
+            <div class="table-scroll"><table><thead><tr><th>Placa</th><th>Transportadora</th><th>Operação</th><th>Entrada</th><th>Saída</th><th>Situação</th></tr></thead><tbody id="latest-rows"></tbody></table></div>
+          </article>
+          <article class="panel live-panel">
+            <div class="panel-heading"><div><h2>Veículos no fluxo</h2><p>Acompanhamento por etapa</p></div><span class="live-label"><i class="live-dot"></i> Exemplo</span></div>
+            <div class="stage-row"><span class="stage-name"><i class="stage-dot blue-bg"></i>Balança</span><strong>18</strong><div class="stage-track"><span style="width:65%"></span></div></div>
+            <div class="stage-row"><span class="stage-name"><i class="stage-dot purple-bg"></i>Pátio</span><strong>32</strong><div class="stage-track"><span style="width:82%"></span></div></div>
+            <div class="stage-row"><span class="stage-name"><i class="stage-dot teal-bg"></i>Cais</span><strong>24</strong><div class="stage-track"><span style="width:54%"></span></div></div>
+            <div class="stage-row"><span class="stage-name"><i class="stage-dot orange-bg"></i>Entrada</span><strong>12</strong><div class="stage-track"><span style="width:35%"></span></div></div>
+            <p class="disclaimer">Etapas e quantidades ilustrativas; validar com a operação.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="page" id="page-movements">
+        <div class="section-intro"><div><h2>Movimentações de veículos</h2><p>Consulte os registros de entrada e saída da operação.</p></div><button class="button button-primary" id="export-csv">⇩ Exportar CSV</button></div>
+        <div class="filters movement-filters">
+          <label>Período<select><option>Hoje</option><option>Últimos 7 dias</option><option>Últimos 30 dias</option></select></label>
+          <label>Placa<input id="plate-filter" type="search" placeholder="Ex.: ABC-1234"></label>
+          <label>Transportadora<select id="movement-carrier"><option value="all">Todas</option><option>Transporte Alfa</option><option>Translog</option><option>Veloz Cargas</option><option>Rota Sul</option><option>Logística Brasil</option></select></label>
+          <label>Tipo de operação<select id="movement-operation"><option value="all">Todas</option><option>Recebimento</option><option>Expedição</option></select></label>
+          <button class="button button-primary" id="search-movements">⌕ Buscar</button>
+        </div>
+        <article class="panel table-panel"><div class="panel-heading"><div><h2>Registros de movimentação</h2><p id="movement-count">Exibindo registros demonstrativos</p></div><span class="pill">Atualização não conectada à API</span></div><div class="table-scroll"><table class="full-table"><thead><tr><th>Placa</th><th>Transportadora</th><th>Tipo de operação</th><th>Entrada</th><th>Saída</th><th>Tempo no terminal</th><th>Etapa atual</th><th>Status</th></tr></thead><tbody id="movement-rows"></tbody></table></div></article>
+        <p class="page-note">Os dados desta tela são fictícios e servem apenas para desenvolver e testar a interface.</p>
+      </section>
+
+      <section class="page" id="page-carriers">
+        <div class="section-intro"><div><h2>Transportadoras</h2><p>Compare o volume de veículos e os indicadores por transportadora.</p></div></div>
+        <div class="filters"><label>Período<select><option>Hoje</option><option>Últimos 7 dias</option><option>Últimos 30 dias</option></select></label><label>Tipo de operação<select><option>Todas</option><option>Recebimento</option><option>Expedição</option></select></label><button class="button button-primary" id="carrier-search">Buscar</button></div>
+        <div class="kpi-grid three">
+          <article class="kpi-card"><div class="kpi-label">Total de transportadoras</div><div class="kpi-value">8</div><div class="kpi-note">No exemplo demonstrativo</div></article>
+          <article class="kpi-card"><div class="kpi-label">Veículos no período</div><div class="kpi-value">1.245</div><div class="kpi-note positive">↑ 12% <span>vs. período anterior</span></div></article>
+          <article class="kpi-card"><div class="kpi-label">Tempo médio de permanência</div><div class="kpi-value">48 <small>min</small></div><div class="kpi-note positive">↓ 8% <span>vs. período anterior</span></div></article>
+        </div>
+        <article class="panel table-panel"><div class="panel-heading"><div><h2>Desempenho por transportadora</h2><p>Valores fictícios para ilustrar a tabela.</p></div></div><div class="table-scroll"><table class="full-table"><thead><tr><th>Transportadora</th><th>Veículos</th><th>% do total</th><th>Tempo médio</th><th>Prancha (t/h)</th><th>Situação</th></tr></thead><tbody id="carrier-rows"></tbody></table></div></article>
+      </section>
+
+      <section class="page" id="page-reports">
+        <div class="section-intro"><div><h2>Relatórios</h2><p>Organize consultas e relatórios operacionais.</p></div></div>
+        <div class="filters"><label>Período<select><option>Hoje</option><option>Últimos 7 dias</option><option>Últimos 30 dias</option></select></label><label>Tipo de relatório<select id="report-type"><option value="all">Todos</option><option>Movimentação de carga</option><option>Recebimento de carga</option><option>Expedição de carga</option><option>Estoque atual</option><option>Relatório de veículos</option></select></label><button class="button button-primary" id="filter-reports">Filtrar</button></div>
+        <div class="report-list" id="report-list">
+          <article class="report-card" data-type="Movimentação de carga"><div class="report-icon">▤</div><div class="report-copy"><h3>Movimentação de carga</h3><p>Consulta das movimentações de entrada e saída de carga.</p><small>Disponibilidade e campos a confirmar com a API</small></div><button class="button button-light report-action">Detalhes</button></article>
+          <article class="report-card" data-type="Recebimento de carga"><div class="report-icon">⇩</div><div class="report-copy"><h3>Recebimento de carga</h3><p>Detalhamento das operações de recebimento.</p><small>Unidades e filtros conforme documentação</small></div><button class="button button-light report-action">Detalhes</button></article>
+          <article class="report-card" data-type="Expedição de carga"><div class="report-icon">⇧</div><div class="report-copy"><h3>Expedição de carga</h3><p>Detalhamento das operações de expedição.</p><small>Unidades e filtros conforme documentação</small></div><button class="button button-light report-action">Detalhes</button></article>
+          <article class="report-card" data-type="Estoque atual"><div class="report-icon">▣</div><div class="report-copy"><h3>Estoque atual</h3><p>Consulta de situação do estoque no terminal.</p><small>Confirmar se faz parte do escopo do painel</small></div><button class="button button-light report-action">Detalhes</button></article>
+          <article class="report-card" data-type="Relatório de veículos"><div class="report-icon">⇄</div><div class="report-copy"><h3>Relatório de veículos</h3><p>Lista de veículos por período, transportadora e etapa.</p><small>Proposta de relatório para o novo painel</small></div><button class="button button-light report-action">Detalhes</button></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-settings">
+        <div class="section-intro"><div><h2>Configurações</h2><p>Preferências demonstrativas para a interface do painel.</p></div></div>
+        <div class="settings-grid">
+          <article class="panel settings-panel"><h2>Notificações</h2><p>Escolha quais avisos deseja visualizar nesta interface de demonstração.</p><label class="setting-row"><span><strong>Alertas de desvios operacionais</strong><small>Exibir avisos sobre situações fora dos limites.</small></span><input type="checkbox" checked></label><label class="setting-row"><span><strong>Atualizações do painel</strong><small>Mostrar indicação de atualização dos dados.</small></span><input type="checkbox" checked></label><label class="setting-row"><span><strong>Relatórios por e-mail</strong><small>Preferência visual; envio não implementado.</small></span><input type="checkbox"></label></article>
+          <article class="panel settings-panel"><h2>Visualização</h2><p>Ajustes locais para a aparência do protótipo.</p><label class="setting-row"><span><strong>Tema</strong><small>Alternar entre tema claro e escuro.</small></span><select id="theme-select"><option value="light">Claro</option><option value="dark">Escuro</option></select></label><label class="setting-row"><span><strong>Idioma</strong><small>Idioma dos textos da interface.</small></span><select><option>Português (Brasil)</option></select></label><div class="settings-warning">As opções desta página são apenas demonstrativas. Acesso de usuários e preferências persistentes ainda não foram implementados.</div></article>
+        </div>
+      </section>
+
+      <footer class="footer"><span>Protótipo de interface · COPI</span><span>Dados fictícios — integração com API pendente</span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
