@@ -1,0 +1,125 @@
+/* CADASTRO DE VEÍCULOS */
+
+.cadastro {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
+
+}
+
+.cadastro__titulo {
+
+  font-size: 24px;
+
+  font-weight: 700;
+
+  color: #1e293b;
+
+}
+
+.cadastro__descricao {
+
+  font-size: 14px;
+
+  color: #64748b;
+
+}
+
+.cadastro__formulario {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+
+  padding: 24px;
+
+  background-color: #fff;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 12px;
+
+}
+
+.cadastro__campo {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+}
+
+.cadastro__campo label {
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  color: #334155;
+
+}
+
+.cadastro__campo input,
+
+.cadastro__campo select {
+
+  width: 100%;
+
+  padding: 12px;
+
+  border: 1px solid #cbd5e1;
+
+  border-radius: 8px;
+
+  font-size: 14px;
+
+  background-color: #fff;
+
+}
+
+.cadastro__campo input:focus,
+
+.cadastro__campo select:focus {
+
+  outline: none;
+
+  border-color: #2563eb;
+
+}
+
+.cadastro__botao {
+
+  grid-column: 1 / -1;
+
+  justify-self: end;
+
+  padding: 12px 24px;
+
+  background-color: #2563eb;
+
+  color: #fff;
+
+  border: none;
+
+  border-radius: 8px;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+}
+
+.cadastro__botao:hover {
+
+  background-color: #1d4ed8;
+
+}

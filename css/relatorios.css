@@ -1,0 +1,83 @@
+/* RELATÓRIOS */
+
+.lista-relatorios {
+
+  display: grid;
+
+  gap: 12px;
+
+}
+
+.relatorio {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  background: #fff;
+
+  border: 1px solid var(--border);
+
+  border-radius: 12px;
+
+  padding: 17px;
+
+  box-shadow: var(--shadow);
+
+}
+
+.relatorio__icone {
+
+  display: grid;
+
+  place-items: center;
+
+  flex: 0 0 42px;
+
+  height: 42px;
+
+  border-radius: 12px;
+
+  background: #eaf3ff;
+
+  color: #1877f2;
+
+  font-size: 20px;
+
+}
+
+.relatorio__conteudo {
+
+  flex: 1;
+
+}
+
+.relatorio__conteudo h3 {
+
+  font-size: 12px;
+
+  margin: 0 0 5px;
+
+  color: #183f78;
+
+}
+
+.relatorio__conteudo p {
+
+  margin: 0 0 6px;
+
+  color: #607897;
+
+  font-size: 11px;
+
+}
+
+.relatorio__conteudo small {
+
+  color: #8798ad;
+
+  font-size: 9px;
+
+}

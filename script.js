@@ -4,14 +4,92 @@
 ========================================= */
 
 const movements = [
-  { plate: "LXP-4A23", carrier: "Transporte Alfa", operation: "Expedição", entry: "08:15", exit: "—", duration: "2h 18min", stage: "Balança", status: "Em operação" },
-  { plate: "QWF-7F56", carrier: "Translog", operation: "Recebimento", entry: "07:42", exit: "09:05", duration: "1h 23min", stage: "Pátio", status: "Finalizado" },
-  { plate: "BCD-3021", carrier: "Veloz Cargas", operation: "Expedição", entry: "08:30", exit: "—", duration: "45min", stage: "Cais", status: "Em operação" },
-  { plate: "EFG-8H76", carrier: "Rota Sul", operation: "Recebimento", entry: "06:55", exit: "08:20", duration: "1h 32min", stage: "Balança", status: "Finalizado" },
-  { plate: "JKL-2M34", carrier: "Transporte Alfa", operation: "Expedição", entry: "09:12", exit: "—", duration: "28min", stage: "Pátio", status: "Em operação" },
-  { plate: "MNO-5P67", carrier: "Logística Brasil", operation: "Recebimento", entry: "10:05", exit: "11:40", duration: "1h 35min", stage: "Cais", status: "Finalizado" },
-  { plate: "PQR-8T90", carrier: "Veloz Cargas", operation: "Expedição", entry: "10:32", exit: "—", duration: "12min", stage: "Entrada", status: "Em operação" },
-  { plate: "STU-2V13", carrier: "Translog", operation: "Recebimento", entry: "11:20", exit: "12:10", duration: "50min", stage: "Balança", status: "Finalizado" }
+  {
+    plate: "LXP-4A23",
+    carrier: "Transporte Alfa",
+    operation: "Expedição",
+    entry: "08:15",
+    exit: "—",
+    duration: "2h 18min",
+    stage: "Balança",
+    status: "Parado"
+  },
+
+  {
+    plate: "QWF-7F56",
+    carrier: "Translog",
+    operation: "Recebimento",
+    entry: "07:42",
+    exit: "09:05",
+    duration: "1h 23min",
+    stage: "Pátio",
+    status: "Finalizado"
+  },
+
+  {
+    plate: "BCD-3021",
+    carrier: "Veloz Cargas",
+    operation: "Expedição",
+    entry: "08:30",
+    exit: "—",
+    duration: "45min",
+    stage: "Cais",
+    status: "Em operação"
+  },
+
+  {
+    plate: "EFG-8H76",
+    carrier: "Rota Sul",
+    operation: "Recebimento",
+    entry: "06:55",
+    exit: "08:20",
+    duration: "1h 32min",
+    stage: "Balança",
+    status: "Finalizado"
+  },
+
+  {
+    plate: "JKL-2M34",
+    carrier: "Transporte Alfa",
+    operation: "Expedição",
+    entry: "09:12",
+    exit: "—",
+    duration: "28min",
+    stage: "Pátio",
+    status: "Em operação"
+  },
+
+  {
+    plate: "MNO-5P67",
+    carrier: "Logística Brasil",
+    operation: "Recebimento",
+    entry: "10:05",
+    exit: "11:40",
+    duration: "1h 35min",
+    stage: "Cais",
+    status: "Finalizado"
+  },
+
+  {
+    plate: "PQR-8T90",
+    carrier: "Veloz Cargas",
+    operation: "Expedição",
+    entry: "10:32",
+    exit: "—",
+    duration: "12min",
+    stage: "Entrada",
+    status: "Em operação"
+  },
+  {
+    plate: "STU-2V13",
+    carrier: "Translog",
+    operation: "Recebimento",
+    entry: "11:20",
+    exit: "12:10",
+    duration: "50min",
+    stage: "Balança",
+    status: "Finalizado"
+  }
 ];
 
 const carriers = [
@@ -34,22 +112,31 @@ const pageDetails = {
     "Acompanhamento da Movimentação Rodoviária",
     "Visão geral da operação em um só lugar"
   ],
+  
   movements: [
     "Movimentações de Veículos",
     "Consulte e acompanhe as movimentações da operação"
   ],
+
   carriers: [
     "Transportadoras",
     "Compare o volume e os indicadores por transportadora"
   ],
+
   reports: [
     "Relatórios",
     "Consulte relatórios disponíveis e organize suas análises"
   ],
+
   settings: [
     "Configurações",
     "Preferências de visualização do painel"
-  ]
+  ],
+
+  vehicles: [
+    "Cadastro de Veículos",
+    "Cadastre e gerencie os veículos da operação"
+  ],
 };
 
 /* =========================================
@@ -128,13 +215,18 @@ document.querySelectorAll("[data-goto]").forEach(button => {
 ========================================= */
 
 function statusBadge(status) {
-  const className = status === "Finalizado"
-    ? "situacao--concluido"
-    : "situacao--andamento";
+  let className;
+
+  if (status === "Finalizado") {
+    className = "situacao--concluido";
+  } else if (status === "Parado") {
+    className = "situacao--parado";
+  } else {
+    className = "situacao--andamento";
+  }
 
   return `<span class="situacao ${className}">${status}</span>`;
 }
-
 /* =========================================
    TABELAS DE MOVIMENTAÇÕES
 ========================================= */
@@ -155,7 +247,7 @@ function renderMovementRows(list, targetId, compact = false) {
 
   target.innerHTML = list.map(item => compact
     ? `
-      <tr>
+      <tr class="${item.status === 'Parado' ? 'tabela__linha--parado' : ''}">
         <td><strong>${item.plate}</strong></td>
         <td>${item.carrier}</td>
         <td>${item.operation}</td>
@@ -165,7 +257,7 @@ function renderMovementRows(list, targetId, compact = false) {
       </tr>
     `
     : `
-      <tr>
+      <tr class="${item.status === 'Parado' ? 'tabela__linha--parado' : ''}">
         <td><strong>${item.plate}</strong></td>
         <td>${item.carrier}</td>
         <td>${item.operation}</td>

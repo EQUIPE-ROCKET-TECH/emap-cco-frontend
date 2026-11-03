@@ -1,0 +1,73 @@
+/* VARIÁVEIS */
+
+:root {
+
+  --navy: #123b78;
+
+  --blue: #1877f2;
+
+  --blue-dark: #155ac0;
+
+  --blue-soft: #eaf3ff;
+
+  --bg: #f4f8fd;
+
+  --surface: #ffffff;
+
+  --text: #17345f;
+
+  --muted: #7185a3;
+
+  --border: #dce8f7;
+
+  --green: #13a879;
+
+  --red: #e74c61;
+
+  --shadow: 0 4px 18px rgba(32, 91, 159, .06);
+
+}
+
+/* ESTILOS GERAIS */
+
+\* {
+
+  box-sizing: border-box;
+
+}
+
+body {
+
+  margin: 0;
+
+  font-family: Inter, Arial, sans-serif;
+
+  background: var(--bg);
+
+  color: var(--text);
+
+  font-size: 13px;
+
+}
+
+button,
+
+input,
+
+select {
+
+  font: inherit;
+
+}
+
+button {
+
+  cursor: pointer;
+
+}
+
+.aplicacao {
+
+  min-height: 100vh;
+
+}

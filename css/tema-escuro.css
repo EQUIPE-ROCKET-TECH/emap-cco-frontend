@@ -1,0 +1,123 @@
+/* MODO ESCURO */
+
+body.tema--escuro {
+
+  --bg: #101b2b;
+
+  --surface: #17263a;
+
+  --text: #e2edfc;
+
+  --muted: #9aacc5;
+
+  --border: #2a3c54;
+
+  color: var(--text);
+
+}
+
+body.tema--escuro .barra-lateral,
+
+body.tema--escuro .cabecalho,
+
+body.tema--escuro .filtros,
+
+body.tema--escuro .indicador,
+
+body.tema--escuro .painel,
+
+body.tema--escuro .relatorio {
+
+  background: #17263a;
+
+}
+
+body.tema--escuro h1,
+
+body.tema--escuro .painel__cabecalho h2,
+
+body.tema--escuro .secao__introducao h2,
+
+body.tema--escuro .painel--configuracoes h2,
+
+body.tema--escuro .indicador__valor,
+
+body.tema--escuro .relatorio__conteudo h3 {
+
+  color: #e2edfc;
+
+}
+
+body.tema--escuro .menu__link {
+
+  color: #b3c4dc;
+
+}
+
+body.tema--escuro .menu__link--ativo {
+
+  background: #233c5e;
+
+  color: #83baff;
+
+}
+
+body.tema--escuro .filtros select,
+
+body.tema--escuro .filtros input,
+
+body.tema--escuro .configuracao__linha select {
+
+  background: #122035;
+
+  color: #e2edfc;
+
+  border-color: #344a66;
+
+}
+
+body.tema--escuro th {
+
+  background: #1d3049;
+
+  color: #b3c4dc;
+
+}
+
+body.tema--escuro td {
+
+  color: #c0d0e4;
+
+  border-color: #293d56;
+
+}
+
+body.tema--escuro .distribuicao__grafico::before {
+
+  background: #17263a;
+
+}
+
+body.tema--escuro .distribuicao__grafico strong {
+
+  color: #e2edfc;
+
+}
+
+body.tema--escuro .etapa__barra {
+
+  background: #293d56;
+
+}
+
+body.tema--escuro .marca strong {
+
+  color: #e2edfc;
+
+}
+
+body.tema--escuro .configuracao__linha {
+
+  border-color: #293d56;
+
+}
