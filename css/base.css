@@ -28,16 +28,12 @@
 
 }
 
-/* ESTILOS GERAIS */
 
-\* {
-
+* {
   box-sizing: border-box;
-
 }
 
 body {
-
   margin: 0;
 
   font-family: Inter, Arial, sans-serif;
@@ -48,26 +44,18 @@ body {
 
   font-size: 13px;
 
+  gap: 20px;
+
 }
 
-button,
-
-input,
-
-select {
-
+button, input, select {
   font: inherit;
-
 }
 
 button {
-
   cursor: pointer;
-
 }
 
 .aplicacao {
-
   min-height: 100vh;
-
 }
