@@ -108,7 +108,7 @@
 
   align-items: center;
 
-  gap: 12px;
+  gap: 30px;
 
   padding: 13px 14px;
 
@@ -122,17 +122,6 @@
 
 }
 
-.menu__link span {
-
-  width: 20px;
-
-  font-size: 19px;
-
-  text-align: center;
-
-  color: #315c91;
-
-}
 
 .menu__link:hover {
 
@@ -265,14 +254,6 @@ h1 {
   margin: 0;
 
   color: #143a72;
-
-}
-
-.cabecalho__subtitulo {
-
-  color: var(--muted);
-
-  margin: 7px 0 0;
 
 }
 
