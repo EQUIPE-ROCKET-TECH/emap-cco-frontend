@@ -1,0 +1,79 @@
+
+/* PAINEL DE ALERTAS */
+
+.painel--alertas {
+    min-width: 0;
+}
+
+.alertas__contador {
+    padding: 5px 10px;
+    border-radius: 20px;
+    background-color: #ffe1e5;
+    color: #c62842;
+    font-size: 0.75rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.alertas__lista {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.alertas__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 10px;
+    background-color: #f8fafc;
+}
+
+.alertas__item--critico {
+    background-color: #fff0f2;
+    border-left: 3px solid #e54860;
+}
+
+.alertas__item--normal {
+    border-left: 3px solid #22a78b;
+}
+
+.alertas__icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: #e4f7f1;
+    color: #16866d;
+    font-weight: 700;
+}
+
+.alertas__item--critico .alertas__icone {
+    background-color: #ffdce2;
+    color: #c62842;
+}
+
+.alertas__conteudo {
+    flex: 1;
+    min-width: 0;
+}
+
+.alertas__conteudo strong {
+    font-size: 0.85rem;
+}
+
+.alertas__conteudo p {
+    margin: 4px 0 0;
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+.alertas__nivel {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #c62842;
+}

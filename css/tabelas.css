@@ -18,6 +18,37 @@ table {
 
 }
 
+.painel--ultimas-movimentacoes .tabela__rolagem {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.painel--ultimas-movimentacoes table {
+  width: 100%;
+  min-width: 1900px;
+}
+
+
+/* Tabela completa da página Movimentações */
+
+.painel--tabela {
+  width: 100%;
+  min-width: 0;
+}
+
+.painel--tabela .tabela__rolagem {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.painel--tabela .tabela--completa {
+  width: 100%;
+  min-width: 1900px;
+}
+
+
 th {
 
   color: #647d9b;

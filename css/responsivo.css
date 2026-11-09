@@ -308,7 +308,16 @@
 
 }
 
+
+
+@media (max-width: 900px) {
+  .grade-paineis {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+
 /* Exibição de relatórios */
 .relatorio[hidden] {
-    display: none;
+  display: none;
 }

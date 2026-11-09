@@ -236,22 +236,44 @@
 
 /* GRADE DE PAINÉIS */
 
+
 .grade-paineis {
-
   display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
 
-  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr);
+.grade-paineis > .painel--grafico,
+.grade-paineis > .painel--transportadoras,
+.grade-paineis > .painel--alertas {
+    min-width: 0;
+}
 
-  gap: 15px;
+/* Tabela ocupando toda a largura */
+.grade-paineis>.painel--ultimas-movimentacoes {
+  grid-column: 1 / -1;
+  width: 100%;
+  min-width: 0;
+}
 
+.painel--ultimas-movimentacoes {
+  grid-column: 1 / -1;
+  min-width: 0;
+}
+
+.grade-graficos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.grade-graficos>.painel {
+  min-width: 0;
 }
 
 .painel {
-
   padding: 17px;
-
   min-width: 0;
-
 }
 
 .painel__cabecalho {

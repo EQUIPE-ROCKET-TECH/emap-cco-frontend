@@ -3,78 +3,171 @@
    DADOS DEMONSTRATIVOS
 ========================================= */
 
+
 const movements = [
   {
     plate: "LXP-4A23",
+    ship: "PRESTIGE DIVA",
+    flow: "B099-P1",
+    window: "311",
+    bl: "BL-DEMO-001",
+    driver: "Carlos Almeida",
     carrier: "Transporte Alfa",
     operation: "Expedição",
     entry: "08:15",
+    entryPAN: "09/10/2026 08:15",
+    axles: 6,
+    tareWeight: 17080,
+    tareDate: "09/10/2026 08:30",
+    collectorDate: "—",
+    grossWeight: null,
+    netWeight: null,
+    grossDate: "—",
+    overweight: "Não",
     exit: "—",
     duration: "2h 18min",
     stage: "Balança",
     status: "Parado"
   },
-
   {
     plate: "QWF-7F56",
+    ship: "PRESTIGE DIVA",
+    flow: "B099-P1",
+    window: "112",
+    bl: "BL-DEMO-002",
+    driver: "Marcos Oliveira",
     carrier: "Translog",
     operation: "Recebimento",
     entry: "07:42",
+    entryPAN: "09/10/2026 07:42",
+    axles: 6,
+    tareWeight: 18340,
+    tareDate: "09/10/2026 07:55",
+    collectorDate: "09/10/2026 08:10",
+    grossWeight: 45200,
+    netWeight: 26860,
+    grossDate: "09/10/2026 08:40",
+    overweight: "Não",
     exit: "09:05",
     duration: "1h 23min",
     stage: "Pátio",
     status: "Finalizado"
   },
-
   {
     plate: "BCD-3021",
+    ship: "PRESTIGE DIVA",
+    flow: "B101-P1",
+    window: "211",
+    bl: "BL-DEMO-003",
+    driver: "João Ferreira",
     carrier: "Veloz Cargas",
     operation: "Expedição",
     entry: "08:30",
+    entryPAN: "09/10/2026 08:30",
+    axles: 7,
+    tareWeight: 17100,
+    tareDate: "09/10/2026 08:45",
+    collectorDate: "—",
+    grossWeight: null,
+    netWeight: null,
+    grossDate: "—",
+    overweight: "Não",
     exit: "—",
     duration: "45min",
     stage: "Cais",
     status: "Em operação"
   },
-
   {
     plate: "EFG-8H76",
+    ship: "PRESTIGE DIVA",
+    flow: "B102-P1",
+    window: "311",
+    bl: "BL-DEMO-004",
+    driver: "Pedro Santos",
     carrier: "Rota Sul",
     operation: "Recebimento",
     entry: "06:55",
+    entryPAN: "09/10/2026 06:55",
+    axles: 6,
+    tareWeight: 18900,
+    tareDate: "09/10/2026 07:10",
+    collectorDate: "09/10/2026 07:25",
+    grossWeight: 46800,
+    netWeight: 27900,
+    grossDate: "09/10/2026 07:50",
+    overweight: "Não",
     exit: "08:20",
     duration: "1h 32min",
     stage: "Balança",
     status: "Finalizado"
   },
-
   {
     plate: "JKL-2M34",
+    ship: "PRESTIGE DIVA",
+    flow: "B099-P1",
+    window: "411",
+    bl: "BL-DEMO-005",
+    driver: "Rafael Costa",
     carrier: "Transporte Alfa",
     operation: "Expedição",
     entry: "09:12",
+    entryPAN: "09/10/2026 09:12",
+    axles: 6,
+    tareWeight: 16860,
+    tareDate: "—",
+    collectorDate: "—",
+    grossWeight: null,
+    netWeight: null,
+    grossDate: "—",
+    overweight: "Não",
     exit: "—",
     duration: "28min",
     stage: "Pátio",
     status: "Em operação"
   },
-
   {
     plate: "MNO-5P67",
+    ship: "PRESTIGE DIVA",
+    flow: "B101-P1",
+    window: "211",
+    bl: "BL-DEMO-006",
+    driver: "Lucas Martins",
     carrier: "Logística Brasil",
     operation: "Recebimento",
     entry: "10:05",
+    entryPAN: "09/10/2026 10:05",
+    axles: 7,
+    tareWeight: 17600,
+    tareDate: "09/10/2026 10:20",
+    collectorDate: "09/10/2026 10:35",
+    grossWeight: 44000,
+    netWeight: 26400,
+    grossDate: "09/10/2026 11:10",
+    overweight: "Não",
     exit: "11:40",
     duration: "1h 35min",
     stage: "Cais",
     status: "Finalizado"
   },
-
   {
     plate: "PQR-8T90",
+    ship: "PRESTIGE DIVA",
+    flow: "B102-P1",
+    window: "411",
+    bl: "BL-DEMO-007",
+    driver: "André Lima",
     carrier: "Veloz Cargas",
     operation: "Expedição",
     entry: "10:32",
+    entryPAN: "09/10/2026 10:32",
+    axles: 6,
+    tareWeight: null,
+    tareDate: "—",
+    collectorDate: "—",
+    grossWeight: null,
+    netWeight: null,
+    grossDate: "—",
+    overweight: "Não",
     exit: "—",
     duration: "12min",
     stage: "Entrada",
@@ -82,9 +175,23 @@ const movements = [
   },
   {
     plate: "STU-2V13",
+    ship: "PRESTIGE DIVA",
+    flow: "B099-P1",
+    window: "311",
+    bl: "BL-DEMO-008",
+    driver: "Felipe Rocha",
     carrier: "Translog",
     operation: "Recebimento",
     entry: "11:20",
+    entryPAN: "09/10/2026 11:20",
+    axles: 6,
+    tareWeight: 18200,
+    tareDate: "09/10/2026 11:30",
+    collectorDate: "09/10/2026 11:40",
+    grossWeight: 42000,
+    netWeight: 23800,
+    grossDate: "09/10/2026 11:55",
+    overweight: "Não",
     exit: "12:10",
     duration: "50min",
     stage: "Balança",
@@ -112,7 +219,7 @@ const pageDetails = {
     "Acompanhamento da Movimentação Rodoviária",
     "Visão geral da operação em um só lugar"
   ],
-  
+
   movements: [
     "Movimentações de Veículos",
     "Consulte e acompanhe as movimentações da operação"
@@ -231,13 +338,17 @@ function statusBadge(status) {
    TABELAS DE MOVIMENTAÇÕES
 ========================================= */
 
+
+
 function renderMovementRows(list, targetId, compact = false) {
   const target = document.getElementById(targetId);
+
+  if (!target) return;
 
   if (!list.length) {
     target.innerHTML = `
       <tr>
-        <td colspan="${compact ? 6 : 8}" class="tabela__linha-vazia">
+        <td colspan="20" class="tabela__linha-vazia">
           Nenhuma movimentação encontrada com esses filtros.
         </td>
       </tr>
@@ -245,31 +356,44 @@ function renderMovementRows(list, targetId, compact = false) {
     return;
   }
 
-  target.innerHTML = list.map(item => compact
-    ? `
-      <tr class="${item.status === 'Parado' ? 'tabela__linha--parado' : ''}">
-        <td><strong>${item.plate}</strong></td>
-        <td>${item.carrier}</td>
-        <td>${item.operation}</td>
-        <td>${item.entry}</td>
-        <td>${item.exit}</td>
+  const mostrarValor = (valor) => {
+    return valor === null || valor === undefined || valor === ""
+      ? "—"
+      : valor;
+  };
+
+  target.innerHTML = list.map(item => {
+    const classeLinha = item.status === "Parado"
+      ? "tabela__linha--parado"
+      : "";
+
+    return `
+      <tr class="${classeLinha}">
+        <td><strong>${mostrarValor(item.plate)}</strong></td>
+        <td>${mostrarValor(item.ship)}</td>
+        <td>${mostrarValor(item.flow)}</td>
+        <td>${mostrarValor(item.window)}</td>
+        <td>${mostrarValor(item.bl)}</td>
+        <td>${mostrarValor(item.driver)}</td>
+        <td>${mostrarValor(item.carrier)}</td>
+        <td>${mostrarValor(item.entryPAN)}</td>
+        <td>${mostrarValor(item.axles)}</td>
+        <td>${mostrarValor(item.tareWeight)}</td>
+        <td>${mostrarValor(item.tareDate)}</td>
+        <td>${mostrarValor(item.collectorDate)}</td>
+        <td>${mostrarValor(item.grossWeight)}</td>
+        <td>${mostrarValor(item.netWeight)}</td>
+        <td>${mostrarValor(item.grossDate)}</td>
+        <td>${mostrarValor(item.overweight)}</td>
+        <td>${mostrarValor(item.exit)}</td>
+        <td>${mostrarValor(item.duration)}</td>
+        <td>${mostrarValor(item.stage)}</td>
         <td>${statusBadge(item.status)}</td>
       </tr>
-    `
-    : `
-      <tr class="${item.status === 'Parado' ? 'tabela__linha--parado' : ''}">
-        <td><strong>${item.plate}</strong></td>
-        <td>${item.carrier}</td>
-        <td>${item.operation}</td>
-        <td>${item.entry}</td>
-        <td>${item.exit}</td>
-        <td>${item.duration}</td>
-        <td>${item.stage}</td>
-        <td>${statusBadge(item.status)}</td>
-      </tr>
-    `
-  ).join("");
+    `;
+  }).join("");
 }
+
 
 /* =========================================
    TABELA DE TRANSPORTADORAS
@@ -350,25 +474,50 @@ document.getElementById("clear-filters").addEventListener("click", () => {
    EXPORTAR CSV
 ========================================= */
 
+
 document.getElementById("export-csv").addEventListener("click", () => {
   const header = [
     "Placa",
+    "Navio",
+    "Fluxo",
+    "Janela",
+    "BL",
+    "Motorista",
     "Transportadora",
-    "Tipo de operação",
-    "Entrada",
+    "Entrada PAN",
+    "Eixos",
+    "Peso Tara",
+    "Data Tara",
+    "Data Coletor",
+    "Peso Cheio",
+    "Peso Líquido",
+    "Data Cheio",
+    "Sobrepeso",
     "Saída",
-    "Tempo no terminal",
-    "Etapa atual",
-    "Status"
+    "Duração",
+    "Etapa",
+    "Situação"
   ];
 
   const rows = [
     header,
     ...filteredMovements().map(item => [
       item.plate,
+      item.ship,
+      item.flow,
+      item.window,
+      item.bl,
+      item.driver,
       item.carrier,
-      item.operation,
-      item.entry,
+      item.entryPAN,
+      item.axles,
+      item.tareWeight,
+      item.tareDate,
+      item.collectorDate,
+      item.grossWeight,
+      item.netWeight,
+      item.grossDate,
+      item.overweight,
       item.exit,
       item.duration,
       item.stage,
@@ -376,22 +525,34 @@ document.getElementById("export-csv").addEventListener("click", () => {
     ])
   ];
 
+
+  const formatarValor = (valor) => {
+    return valor === null || valor === undefined || valor === ""
+      ? "—"
+      : valor;
+  };
+
+  
   const csv = "\uFEFF" + rows.map(row =>
     row.map(value =>
-      `"${String(value).replaceAll('"', '""')}"`
+      `"${String(formatarValor(value)).replaceAll('"', '""')}"`
     ).join(";")
   ).join("\r\n");
+
 
   const blob = new Blob([csv], {
     type: "text/csv;charset=utf-8;"
   });
 
-  const link = document.createElement("a");
   const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
 
   link.href = url;
   link.download = "movimentacoes-demonstrativas.csv";
+
+  document.body.appendChild(link);
   link.click();
+  link.remove();
 
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 

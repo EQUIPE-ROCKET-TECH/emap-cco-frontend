@@ -159,25 +159,7 @@
             </div>
           </article>
 
-          <article class="indicador indicador--alerta">
-            <div class="indicador__icone indicador__icone--vermelho">!</div>
-            <div class="indicador__rotulo">
-              Alertas e desvios
-              <span class="indicador__contador-alertas">3</span>
-            </div>
-            <div class="indicador__linha-alerta">
-              <strong>Permanência elevada</strong>
-              <small>Placa LXP-4A23 · 2h 18min</small>
-            </div>
-            <div class="indicador__linha-alerta">
-              <strong>Fila na balança</strong>
-              <small>5 veículos aguardando</small>
-            </div>
-            <div class="indicador__linha-alerta">
-              <strong>Veículo fora do horário</strong>
-              <small>Placa QWF-7F56 · entrada 07:30</small>
-            </div>
-          </article>
+
         </div>
 
         <div class="grade-paineis">
@@ -235,12 +217,60 @@
           </article>
 
 
+          <!-- Painel de Alertas Operacionais -->
+          <article class="painel painel--alertas">
+            <div class="painel__cabecalho">
+              <div>
+                <h2>Alertas Operacionais</h2>
+                <p>Ocorrências que exigem atenção</p>
+              </div>
+
+              <span class="alertas__contador">1 ativo</span>
+            </div>
+
+            <div class="alertas__lista">
+
+              <div class="alertas__item alertas__item--critico">
+                <span class="alertas__icone">!</span>
+
+                <div class="alertas__conteudo">
+                  <strong>Veículo parado</strong>
+                  <p>LXP-4A23 · Balança</p>
+                </div>
+
+                <span class="alertas__nivel">Crítico</span>
+
+              </div>
+
+              <div class="alertas__item alertas__item--normal">
+                <span class="alertas__icone">✓</span>
+
+                <div class="alertas__conteudo">
+                  <strong>Sobrepeso</strong>
+                  <p>Nenhuma ocorrência registrada</p>
+                </div>
+              </div>
+
+              <div class="alertas__item alertas__item--normal">
+                <span class="alertas__icone">✓</span>
+
+                <div class="alertas__conteudo">
+                  <strong>Tempo excedido</strong>
+                  <p>Nenhuma ocorrência registrada</p>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+
           <article class="painel painel--ultimas-movimentacoes">
             <div class="painel__cabecalho">
               <div>
                 <h2>Últimas movimentações</h2>
-                <p>Registros demonstrativos</p>
+                <p>Monitoramento de veículos - dados demonstrativos</p>
               </div>
+
               <button class="botao--texto" data-goto="movements">
                 Ver todas →
               </button>
@@ -251,65 +281,31 @@
                 <thead>
                   <tr>
                     <th>Placa</th>
+                    <th>Navio</th>
+                    <th>Fluxo</th>
+                    <th>Janela</th>
+                    <th>BL</th>
+                    <th>Motorista</th>
                     <th>Transportadora</th>
-                    <th>Operação</th>
-                    <th>Entrada</th>
+                    <th>Entrada PAN</th>
+                    <th>Eixos</th>
+                    <th>Peso Tara</th>
+                    <th>Data Tara</th>
+                    <th>Data Coletor</th>
+                    <th>Peso Cheio</th>
+                    <th>Peso Líquido</th>
+                    <th>Data Cheio</th>
+                    <th>Sobrepeso</th>
                     <th>Saída</th>
+                    <th>Duração</th>
+                    <th>Etapa</th>
                     <th>Situação</th>
                   </tr>
                 </thead>
+
                 <tbody id="latest-rows"></tbody>
               </table>
             </div>
-          </article>
-
-
-          <article class="painel painel--fluxo">
-            <div class="painel__cabecalho">
-              <div>
-                <h2>Veículos no fluxo</h2>
-                <p>Acompanhamento por etapa</p>
-              </div>
-              <span class="monitoramento__rotulo">
-                <i class="monitoramento__ponto"></i> Exemplo
-              </span>
-            </div>
-
-            <div class="etapa">
-              <span class="etapa__nome">
-                <i class="etapa__ponto etapa__ponto--azul"></i>Balança
-              </span>
-              <strong>18</strong>
-              <div class="etapa__barra"><span style="width:65%"></span></div>
-            </div>
-
-            <div class="etapa">
-              <span class="etapa__nome">
-                <i class="etapa__ponto etapa__ponto--roxo"></i>Pátio
-              </span>
-              <strong>32</strong>
-              <div class="etapa__barra"><span style="width:82%"></span></div>
-            </div>
-
-            <div class="etapa">
-              <span class="etapa__nome">
-                <i class="etapa__ponto etapa__ponto--verde-agua"></i>Cais
-              </span>
-              <strong>24</strong>
-              <div class="etapa__barra"><span style="width:54%"></span></div>
-            </div>
-
-            <div class="etapa">
-              <span class="etapa__nome">
-                <i class="etapa__ponto etapa__ponto--laranja"></i>Entrada
-              </span>
-              <strong>12</strong>
-              <div class="etapa__barra"><span style="width:35%"></span></div>
-            </div>
-
-            <p class="etapas__observacao">
-              Etapas e quantidades ilustrativas; validar com a operação.
-            </p>
           </article>
         </div>
       </section>
@@ -378,21 +374,36 @@
           </div>
 
           <div class="tabela__rolagem">
+
             <table class="tabela--completa">
               <thead>
                 <tr>
                   <th>Placa</th>
+                  <th>Navio</th>
+                  <th>Fluxo</th>
+                  <th>Janela</th>
+                  <th>BL</th>
+                  <th>Motorista</th>
                   <th>Transportadora</th>
-                  <th>Tipo de operação</th>
-                  <th>Entrada</th>
+                  <th>Entrada PAN</th>
+                  <th>Eixos</th>
+                  <th>Peso Tara</th>
+                  <th>Data Tara</th>
+                  <th>Data Coletor</th>
+                  <th>Peso Cheio</th>
+                  <th>Peso Líquido</th>
+                  <th>Data Cheio</th>
+                  <th>Sobrepeso</th>
                   <th>Saída</th>
-                  <th>Tempo no terminal</th>
-                  <th>Etapa atual</th>
-                  <th>Status</th>
+                  <th>Duração</th>
+                  <th>Etapa</th>
+                  <th>Situação</th>
                 </tr>
               </thead>
+
               <tbody id="movement-rows"></tbody>
             </table>
+
           </div>
         </article>
 
