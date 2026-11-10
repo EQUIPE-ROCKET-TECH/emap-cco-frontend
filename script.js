@@ -637,7 +637,7 @@ document.getElementById("current-time").textContent =
    INICIALIZAÇÃO DAS TABELAS
 ========================================= */
 
-renderMovementRows(movements, "latest-rows", true);
+//renderMovementRows(movements, "latest-rows", true);
 renderMovementRows(movements, "movement-rows");
 renderCarriers();
 
