@@ -593,12 +593,25 @@ document.getElementById("carrier-search").addEventListener("click", () => {
    MODO CLARO E ESCURO
 ========================================= */
 
-document.getElementById("theme-select").addEventListener("change", event => {
-  const darkMode = event.target.value === "dark";
+// Recupera o tema salvo
+const themeSelect = document.getElementById("theme-select");
+const temaSalvo = localStorage.getItem("tema") || "light";
 
-  document.body.classList.toggle("tema--escuro", darkMode);
+// Aplica o tema ao carregar a página
+document.body.classList.toggle("tema--escuro", temaSalvo === "dark");
 
-  notify(`Tema ${darkMode ? "escuro" : "claro"} aplicado.`);
+// Atualiza o seletor
+themeSelect.value = temaSalvo;
+
+// Alterna e salva o tema
+themeSelect.addEventListener("change", event => {
+    const darkMode = event.target.value === "dark";
+
+    document.body.classList.toggle("tema--escuro", darkMode);
+
+    localStorage.setItem("tema", darkMode ? "dark" : "light");
+
+    notify(`Tema ${darkMode ? "escuro" : "claro"} aplicado.`);
 });
 
 /* =========================================
