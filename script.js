@@ -279,6 +279,7 @@ function notify(message) {
 function showPage(name) {
   if (!pageDetails[name]) return;
 
+  // Alterna entre as páginas
   pages.forEach(page => {
     page.classList.toggle(
       "pagina--ativa",
@@ -286,6 +287,7 @@ function showPage(name) {
     );
   });
 
+  // Atualiza o menu lateral
   navButtons.forEach(button => {
     button.classList.toggle(
       "menu__link--ativo",
@@ -293,24 +295,28 @@ function showPage(name) {
     );
   });
 
-  document.getElementById("page-title").textContent =
-    pageDetails[name][0];
+  // Atualiza o título da página
+  const pageTitle = document.getElementById("page-title");
 
-  document.getElementById("page-subtitle").textContent =
-    pageDetails[name][1];
+  if (pageTitle) {
+    pageTitle.textContent = pageDetails[name][0];
+  }
 
+  // Retorna ao topo
   window.scrollTo({
     top: 0,
     behavior: "smooth"
   });
 }
 
+// Eventos dos botões do menu lateral
 navButtons.forEach(button => {
   button.addEventListener("click", () => {
     showPage(button.dataset.page);
   });
 });
 
+// Eventos dos botões de navegação interna
 document.querySelectorAll("[data-goto]").forEach(button => {
   button.addEventListener("click", () => {
     showPage(button.dataset.goto);
@@ -457,10 +463,11 @@ document.getElementById("plate-filter").addEventListener(
   }
 );
 
+/*
 /* =========================================
    LIMPAR FILTROS
 ========================================= */
-
+/*
 document.getElementById("clear-filters").addEventListener("click", () => {
   document.getElementById("period-filter").value = "today";
   document.getElementById("carrier-filter").value = "all";
@@ -532,7 +539,7 @@ document.getElementById("export-csv").addEventListener("click", () => {
       : valor;
   };
 
-  
+
   const csv = "\uFEFF" + rows.map(row =>
     row.map(value =>
       `"${String(formatarValor(value)).replaceAll('"', '""')}"`
@@ -605,13 +612,13 @@ themeSelect.value = temaSalvo;
 
 // Alterna e salva o tema
 themeSelect.addEventListener("change", event => {
-    const darkMode = event.target.value === "dark";
+  const darkMode = event.target.value === "dark";
 
-    document.body.classList.toggle("tema--escuro", darkMode);
+  document.body.classList.toggle("tema--escuro", darkMode);
 
-    localStorage.setItem("tema", darkMode ? "dark" : "light");
+  localStorage.setItem("tema", darkMode ? "dark" : "light");
 
-    notify(`Tema ${darkMode ? "escuro" : "claro"} aplicado.`);
+  notify(`Tema ${darkMode ? "escuro" : "claro"} aplicado.`);
 });
 
 /* =========================================
