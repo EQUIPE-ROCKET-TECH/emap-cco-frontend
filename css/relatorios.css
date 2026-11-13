@@ -1,83 +1,49 @@
 /* RELATÓRIOS */
 
 .lista-relatorios {
-
   display: grid;
-
   gap: 12px;
-
 }
 
 .relatorio {
-
   display: flex;
-
   align-items: center;
-
   gap: 14px;
-
-  background: #fff;
-
-  border: 1px solid var(--border);
-
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
   border-radius: 12px;
-
   padding: 17px;
-
-  box-shadow: var(--shadow);
-
+  box-shadow: var(--sombra-padrao);
 }
 
 .relatorio__icone {
-
   display: grid;
-
   place-items: center;
-
   flex: 0 0 42px;
-
   height: 42px;
-
   border-radius: 12px;
-
-  background: #eaf3ff;
-
-  color: #1877f2;
-
+  background: var(--cor-primaria-suave);
+  color: var(--cor-primaria);
   font-size: 20px;
-
 }
 
 .relatorio__conteudo {
-
   flex: 1;
-
 }
 
 .relatorio__conteudo h3 {
-
   font-size: 12px;
-
   margin: 0 0 5px;
-
-  color: #183f78;
-
+  color: var(--cor-texto);
 }
 
 .relatorio__conteudo p {
-
   margin: 0 0 6px;
-
-  color: #607897;
-
+  color: var(--cor-texto-secundario);
   font-size: 11px;
-
 }
 
 .relatorio__conteudo small {
-
-  color: #8798ad;
-
+  color: var(--cor-texto-desabilitado);
   font-size: 9px;
-
 }

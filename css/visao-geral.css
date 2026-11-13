@@ -1,3 +1,5 @@
+/* VISÃO GERAL */
+
 #page-overview {
     width: 100%;
     min-width: 0;
@@ -20,7 +22,7 @@
     margin: 18px 5px 14px;
     font-size: 1.4rem;
     font-weight: 700;
-    color: #173d74;
+    color: var(--cor-texto);
 }
 
 .visao-geral__cabecalho h2 {
@@ -31,7 +33,7 @@
     display: inline-flex;
     align-items: center;
     gap: 7px;
-    color: #64748b;
+    color: var(--cor-texto-secundario);
     font-size: 0.75rem;
 }
 
@@ -39,7 +41,7 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: #22a78b;
+    background-color: var(--cor-sucesso);
 }
 
 /* =====================================
@@ -60,22 +62,22 @@
     min-width: 0;
     min-height: 125px;
     padding: 20px;
-    background-color: #ffffff;
-    border: 1px solid #dbe6f5;
+    background-color: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
     border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(25, 62, 110, 0.04);
+    box-shadow: var(--sombra-padrao);
 }
 
 #page-overview .grade-indicadores--executivo .indicador__rotulo {
     font-size: 0.8rem;
     font-weight: 600;
-    color: #64748b;
+    color: var(--cor-texto-secundario);
 }
 
 #page-overview .grade-indicadores--executivo .indicador__valor {
     font-size: 1.85rem;
     font-weight: 800;
-    color: #173d74;
+    color: var(--cor-texto);
 }
 
 #page-overview .grade-indicadores--executivo .indicador__valor small {
@@ -84,15 +86,14 @@
 }
 
 #page-overview .grade-indicadores--executivo .indicador--alerta {
-    background-color: #fff1f3;
-    border-color: #ffcbd4;
-    border-left: 4px solid #e54860;
+    background-color: var(--cor-fundo-erro);
+    border-color: var(--cor-erro);
+    border-left: 4px solid var(--cor-erro);
 }
 
 #page-overview .grade-indicadores--executivo .indicador--alerta .indicador__valor {
-    color: #c62842;
+    color: var(--cor-erro);
 }
-
 
 /* =====================================
    CARDS DOS BERÇOS
@@ -110,23 +111,23 @@
     gap: 12px;
     min-width: 0;
     padding: 20px;
-    background-color: #ffffff;
-    border: 1px solid #dbe6f5;
+    background-color: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
     border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(25, 62, 110, 0.04);
+    box-shadow: var(--sombra-padrao);
 }
 
 .berco__titulo {
     margin: 0;
     font-size: 1.1rem;
     font-weight: 800;
-    color: #173d74;
+    color: var(--cor-texto);
 }
 
 .berco__carga {
     margin: -7px 0 0;
     font-size: 0.8rem;
-    color: #64748b;
+    color: var(--cor-texto-secundario);
 }
 
 .berco__produtividade {
@@ -138,12 +139,12 @@
 
 .berco__produtividade strong {
     font-size: 1.2rem;
-    color: #173d74;
+    color: var(--cor-texto);
 }
 
 .berco__produtividade span {
     font-size: 0.75rem;
-    color: #64748b;
+    color: var(--cor-texto-secundario);
 }
 
 .berco__status {
@@ -155,18 +156,18 @@
 }
 
 .berco__status--positivo {
-    background-color: #e3f7ee;
-    color: #16866d;
+    background-color: var(--cor-fundo-sucesso);
+    color: var(--cor-sucesso);
 }
 
 .berco__status--atencao {
-    background-color: #fff1d6;
-    color: #a76a0a;
+    background-color: var(--cor-fundo-atencao);
+    color: var(--cor-atencao);
 }
 
 .berco__status--critico {
-    background-color: #ffe1e5;
-    color: #c62842;
+    background-color: var(--cor-fundo-erro);
+    color: var(--cor-erro);
 }
 
 .berco__progresso {
@@ -174,26 +175,26 @@
     height: 8px;
     overflow: hidden;
     border-radius: 20px;
-    background-color: #e8eef6;
+    background-color: var(--cor-fundo-secundario);
 }
 
 .berco__progresso span {
     display: block;
     height: 100%;
     border-radius: inherit;
-    background-color: #2684f5;
+    background-color: var(--cor-primaria);
 }
 
 .berco:has(.berco__status--positivo) .berco__progresso span {
-    background-color: #22a78b;
+    background-color: var(--cor-sucesso);
 }
 
 .berco:has(.berco__status--atencao) .berco__progresso span {
-    background-color: #f0a536;
+    background-color: var(--cor-atencao);
 }
 
 .berco:has(.berco__status--critico) .berco__progresso span {
-    background-color: #e54860;
+    background-color: var(--cor-erro);
 }
 
 .berco__detalhes {
@@ -202,7 +203,7 @@
     gap: 6px;
     margin-top: auto;
     padding-top: 12px;
-    border-top: 1px solid #edf2f7;
+    border-top: 1px solid var(--cor-borda);
 }
 
 .berco__detalhes p {
@@ -211,28 +212,27 @@
     gap: 8px;
     margin: 0;
     font-size: 0.78rem;
-    color: #64748b;
+    color: var(--cor-texto-secundario);
 }
 
 .berco__detalhes strong {
-    color: #173d74;
+    color: var(--cor-texto);
 }
 
-
-/* Referência de produtividade dos berços */
+/* REFERÊNCIA DE PRODUTIVIDADE DOS BERÇOS */
 
 .berco__referencia {
     margin: -5px 0 0;
     font-size: 0.75rem;
-    color: #64748b;
+    color: var(--cor-texto-secundario);
 }
 
 .berco__referencia strong {
-    color: #173d74;
+    color: var(--cor-texto);
     font-weight: 700;
 }
 
-/* Melhor organização das informações */
+/* MELHOR ORGANIZAÇÃO DAS INFORMAÇÕES */
 
 .berco__carga {
     line-height: 1.4;
@@ -246,9 +246,6 @@
     text-align: right;
     white-space: nowrap;
 }
-
-
-
 
 /* =====================================
    ALERTAS E GRÁFICOS
@@ -282,7 +279,6 @@
     width: 100%;
     min-width: 0;
 }
-
 
 /* =====================================
    RESPONSIVIDADE DA VISÃO GERAL
@@ -327,7 +323,6 @@
     }
 }
 
-
 /* =====================================
    CORREÇÃO DA ESTEIRA DE GIRO
 ===================================== */
@@ -351,27 +346,27 @@
     min-height: 105px;
     padding: 16px 10px;
 
-    background-color: #ffffff;
-    border: 1px solid #dbe6f5;
+    background-color: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
     border-radius: 12px;
 
     text-align: center;
-    box-shadow: 0 4px 16px rgba(25, 62, 110, 0.04);
+    box-shadow: var(--sombra-padrao);
 }
 
 #page-overview .grade-esteira .esteira__etapa span {
-    color: #64748b;
+    color: var(--cor-texto-secundario);
     font-size: 0.78rem;
     font-weight: 600;
 }
 
 #page-overview .grade-esteira .esteira__etapa strong {
-    color: #173d74;
+    color: var(--cor-texto);
     font-size: 1.8rem;
     font-weight: 800;
 }
 
-/* Responsividade */
+/* RESPONSIVIDADE DA ESTEIRA */
 
 @media (max-width: 1250px) {
     #page-overview .grade-esteira {

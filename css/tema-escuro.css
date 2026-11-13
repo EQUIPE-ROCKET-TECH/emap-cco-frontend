@@ -1,121 +1,45 @@
-/* MODO ESCURO */
+/* =====================================
+   TEMA ESCURO - COPI
+===================================== */
 
 body.tema--escuro {
 
-  --bg: #101b2b;
+  /* FUNDOS */
+  --cor-fundo: #111318;
+  --cor-fundo-secundario: #191C22;
+  --cor-superficie: #242830;
+  --cor-hover: #30343D;
 
-  --surface: #17263a;
+  /* TEXTOS */
+  --cor-texto: #F1F2F4;
+  --cor-texto-secundario: #A3A6AE;
+  --cor-texto-desabilitado: #727782;
 
-  --text: #e2edfc;
+  /* BORDAS */
+  --cor-borda: #30343D;
 
-  --muted: #9aacc5;
+  /* CORES PRINCIPAIS */
+  --cor-primaria: #3B82F6;
+  --cor-primaria-hover: #2563EB;
+  --cor-primaria-suave: #252F40;
 
-  --border: #2a3c54;
+  /* STATUS E ALERTAS */
+  --cor-sucesso: #39B66B;
+  --cor-atencao: #F0B429;
+  --cor-erro: #E45B58;
 
-  color: var(--text);
+  /* FUNDOS DOS STATUS */
+  --cor-fundo-sucesso: #19382B;
+  --cor-fundo-atencao: #3D321C;
+  --cor-fundo-erro: #3B2227;
 
-}
+  /* CORES DOS GRÁFICOS */
+  --cor-grafico-azul: #3B82F6;
+  --cor-grafico-verde: #25BBA4;
+  --cor-grafico-laranja: #F0B429;
+  --cor-grafico-roxo: #A78BFA;
+  --cor-grafico-cinza: #727782;
 
-body.tema--escuro .barra-lateral,
-
-body.tema--escuro .cabecalho,
-
-body.tema--escuro .filtros,
-
-body.tema--escuro .indicador,
-
-body.tema--escuro .painel,
-
-body.tema--escuro .relatorio {
-
-  background: #17263a;
-
-}
-
-body.tema--escuro h1,
-
-body.tema--escuro .painel__cabecalho h2,
-
-body.tema--escuro .secao__introducao h2,
-
-body.tema--escuro .painel--configuracoes h2,
-
-body.tema--escuro .indicador__valor,
-
-body.tema--escuro .relatorio__conteudo h3 {
-
-  color: #e2edfc;
-
-}
-
-body.tema--escuro .menu__link {
-
-  color: #b3c4dc;
-
-}
-
-body.tema--escuro .menu__link--ativo {
-
-  background: #233c5e;
-
-  color: #83baff;
-
-}
-
-body.tema--escuro .filtros select,
-
-body.tema--escuro .filtros input,
-
-body.tema--escuro .configuracao__linha select {
-
-  background: #122035;
-
-  color: #e2edfc;
-
-  border-color: #344a66;
-
-}
-
-body.tema--escuro th {
-
-  background: #1d3049;
-
-  color: #b3c4dc;
-
-}
-
-body.tema--escuro td {
-
-  color: #c0d0e4;
-
-  border-color: #293d56;
-
-}
-
-body.tema--escuro .distribuicao__grafico::before {
-
-  background: #17263a;
-
-}
-
-body.tema--escuro .distribuicao__grafico strong {
-
-  color: #e2edfc;
-
-}
-
-body.tema--escuro .etapa__barra {
-
-  background: #293d56;
-
-}
-
-body.tema--escuro .marca strong {
-
-  color: #e2edfc;
-
-}
-
-body.tema--escuro .configuracao__linha {
-  border-color: #293d56;
+  /* SOMBRAS */
+  --sombra-padrao: 0 4px 18px rgba(0, 0, 0, 0.25);
 }
