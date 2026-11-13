@@ -725,3 +725,115 @@ if (window.Chart && chartCanvas) {
   chartCanvas.parentElement.innerHTML =
     "<p>Para visualizar o gráfico, conecte-se à internet para carregar a biblioteca Chart.js.</p>";
 }
+
+// =========================================================================
+// INTEGRAÇÃO COM A API DO BACK-END (FASTAPI - CCO ITAQUI)
+// =========================================================================
+async function integrarDashboardComAPI() {
+    const URL_API = "http://127.0.0.1:8000/api/v1/dashboard/resumo";
+
+    try {
+        const resposta = await fetch(URL_API);
+        if (!resposta.ok) throw new Error(`Erro HTTP: ${resposta.status}`);
+        
+        const dados = await resposta.json();
+        console.log("✅ Dados recebidos do Back-end FastAPI:", dados);
+
+        // 1. Atualiza o relógio e o selo de status no topo
+        const elHora = document.getElementById("current-time");
+        if (elHora) elHora.innerText = `Atualizado às ${dados.timestamp}`;
+
+        const seloAoVivo = document.querySelector(".visao-geral__ao-vivo");
+        if (seloAoVivo) {
+            seloAoVivo.innerHTML = `<span class="visao-geral__ponto"></span> Conectado à API FastAPI`;
+        }
+
+        // 2. Preenche os 4 Cards Executivos do topo
+        const cardsExecutivos = document.querySelectorAll(".grade-indicadores--executivo .indicador__valor");
+        const rotulosExecutivos = document.querySelectorAll(".grade-indicadores--executivo .indicador__rotulo");
+
+        if (cardsExecutivos.length >= 4) {
+            cardsExecutivos[0].innerHTML = `${dados.top_executivo.total_descarregado_ton.toLocaleString("pt-BR")} <small>t</small>`;
+            cardsExecutivos[1].innerHTML = `${dados.top_executivo.total_expedido_ton.toLocaleString("pt-BR")} <small>t</small>`;
+            cardsExecutivos[2].innerText = dados.top_executivo.veiculos_no_giro;
+
+            // Muda o título do 4º card para Ocorrências críticas e mostra o total geral (3)
+            if (rotulosExecutivos[3]) rotulosExecutivos[3].innerText = "Ocorrências críticas";
+            cardsExecutivos[3].innerHTML = `${dados.top_executivo.alertas_sobrepeso_ativos} <small>alertas ativos</small>`;
+        }
+
+        // 3. Preenche os 4 Cards de Pontos Operacionais (Berços 99, 101, 102 e Expedição)
+        const cardsBercos = document.querySelectorAll(".grade-bercos .berco");
+        dados.pontos_operacionais.forEach((ponto, index) => {
+            const card = cardsBercos[index];
+            if (!card) return;
+
+            card.querySelector(".berco__titulo").innerText = ponto.nome;
+            card.querySelector(".berco__carga").innerText = ponto.tipo_carga;
+            card.querySelector(".berco__produtividade strong").innerText = `${ponto.prancha_atual_th} t/h`;
+            card.querySelector(".berco__produtividade span").innerText = `${ponto.atingimento_percentual}% da meta`;
+            card.querySelector(".berco__referencia strong").innerText = `${ponto.meta_contratual_th} t/h`;
+
+            const badgeStatus = card.querySelector(".berco__status");
+            badgeStatus.innerText = ponto.status;
+            badgeStatus.className = ponto.status === "Na meta"
+                ? "berco__status berco__status--positivo"
+                : "berco__status berco__status--atencao";
+
+            const barraProgresso = card.querySelector(".berco__progresso span");
+            if (barraProgresso) {
+                barraProgresso.style.width = `${Math.min(ponto.atingimento_percentual, 100)}%`;
+            }
+
+            const detalhes = card.querySelectorAll(".berco__detalhes strong");
+            if (detalhes.length >= 2) {
+                detalhes[0].innerText = `${ponto.volume_acumulado_ton.toLocaleString("pt-BR")} t`;
+                detalhes[1].innerText = ponto.veiculos_alocados;
+            }
+        });
+
+        // 4. Preenche a Esteira de Giro em 6 Etapas
+        const etapasValores = document.querySelectorAll(".grade-esteira .esteira__etapa strong");
+        if (etapasValores.length >= 6) {
+            etapasValores[0].innerText = dados.esteira_etapas.pan;
+            etapasValores[1].innerText = dados.esteira_etapas.fila_prc;
+            etapasValores[2].innerText = dados.esteira_etapas.balanca_tara;
+            etapasValores[3].innerText = dados.esteira_etapas.operacao;
+            etapasValores[4].innerText = dados.esteira_etapas.balanca_bruto;
+            etapasValores[5].innerText = dados.esteira_etapas.gate_out;
+        }
+
+        // 5. Atualiza a lista de Alertas Críticos e o contador vermelho
+        const listaAlertas = document.querySelector(".alertas__lista");
+        if (listaAlertas && dados.alertas_criticos.length > 0) {
+            listaAlertas.innerHTML = dados.alertas_criticos.map(alerta => {
+                const ehSobrepeso = alerta.includes("SOBREPESO");
+                const tituloAlerta = ehSobrepeso ? "Sobrepeso Detectado" : "Desvio Operacional / Fila";
+
+                return `
+                    <div class="alertas__item alertas__item--critico">
+                        <span class="alertas__icone">!</span>
+                        <div class="alertas__conteudo">
+                            <strong>${tituloAlerta}</strong>
+                            <p>${alerta}</p>
+                        </div>
+                        <span class="alertas__nivel">Crítico</span>
+                    </div>
+                `;
+            }).join("");
+        }
+
+        const contadorAlertas = document.querySelector(".alertas__contador");
+        if (contadorAlertas) contadorAlertas.innerText = `${dados.alertas_criticos.length} ativos`;
+
+        // 6. Atualiza o rodapé avisando que a API está conectada
+        const obs = document.querySelector(".pagina__observacao");
+        if (obs) obs.innerText = "Dados carregados em tempo real via API FastAPI (/api/v1/dashboard/resumo).";
+
+    } catch (erro) {
+        console.error("❌ Falha ao conectar com a API FastAPI:", erro);
+    }
+}
+
+// Executa a integração assim que a tela carregar
+document.addEventListener("DOMContentLoaded", integrarDashboardComAPI);
