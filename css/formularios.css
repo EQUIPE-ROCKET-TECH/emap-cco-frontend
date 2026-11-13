@@ -1,145 +1,84 @@
 /* FILTROS */
 
 .filtros {
-
   display: flex;
-
   flex-wrap: wrap;
-
   align-items: end;
-
   gap: 12px;
-
   padding: 15px;
-
-  background: #fff;
-
-  border: 1px solid var(--border);
-
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
   border-radius: 12px;
-
-  box-shadow: var(--shadow);
-
+  box-shadow: var(--sombra-padrao);
   margin-bottom: 16px;
-
 }
 
 .filtros label {
-
   display: flex;
-
   flex-direction: column;
-
   gap: 7px;
-
-  color: #607897;
-
+  color: var(--cor-texto-secundario);
   font-size: 10px;
-
   font-weight: 600;
-
   flex: 1;
-
   min-width: 130px;
-
 }
 
 .filtros select,
-
 .filtros input,
-
 .configuracao__linha select {
-
   width: 100%;
-
   min-height: 37px;
-
-  border: 1px solid #dce8f7;
-
+  border: 1px solid var(--cor-borda);
   border-radius: 7px;
-
   padding: 0 10px;
-
-  background: #fbfdff;
-
-  color: #26476f;
-
+  background: var(--cor-fundo-secundario);
+  color: var(--cor-texto);
   outline: none;
-
 }
 
 .filtros select:focus,
-
 .filtros input:focus {
-
-  border-color: #6aa8f8;
-
-  box-shadow: 0 0 0 3px #eaf3ff;
-
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 3px var(--cor-primaria-suave);
 }
 
 /* BOTÕES */
 
 .botao {
-
   border: 1px solid transparent;
-
   border-radius: 8px;
-
   min-height: 37px;
-
   padding: 0 14px;
-
   font-weight: 600;
-
   white-space: nowrap;
-
 }
 
 .botao--primario {
-
-  color: white;
-
-  background: var(--blue);
-
-  box-shadow: 0 3px 8px #1877f222;
-
+  color: var(--cor-texto);
+  background: var(--cor-primaria);
+  box-shadow: var(--sombra-padrao);
 }
 
 .botao--primario:hover {
-
-  background: var(--blue-dark);
-
+  background: var(--cor-primaria-hover);
 }
 
 .botao--claro {
-
-  color: #2466b5;
-
-  background: #f5f9ff;
-
-  border-color: #d6e6fa;
-
+  color: var(--cor-primaria);
+  background: var(--cor-primaria-suave);
+  border-color: var(--cor-borda);
 }
 
 .botao--claro:hover {
-
-  background: #eaf3ff;
-
+  background: var(--cor-hover);
 }
 
 .botao--texto {
-
   border: 0;
-
   background: none;
-
-  color: #1877f2;
-
+  color: var(--cor-primaria);
   font-size: 10px;
-
   font-weight: 600;
-
   white-space: nowrap;
-
 }

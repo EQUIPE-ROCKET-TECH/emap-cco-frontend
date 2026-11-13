@@ -315,9 +315,3 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
-
-
-/* Exibição de relatórios */
-.relatorio[hidden] {
-  display: none;
-}

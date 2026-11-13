@@ -1,21 +1,14 @@
 /* TABELAS */
 
 .tabela__rolagem {
-
   width: 100%;
-
   overflow-x: auto;
-
 }
 
 table {
-
   width: 100%;
-
   border-collapse: collapse;
-
   white-space: nowrap;
-
 }
 
 .painel--ultimas-movimentacoes .tabela__rolagem {
@@ -28,7 +21,6 @@ table {
   width: 100%;
   min-width: 1900px;
 }
-
 
 /* Tabela completa da página Movimentações */
 
@@ -48,89 +40,68 @@ table {
   min-width: 1900px;
 }
 
+/* CABEÇALHO DA TABELA */
 
 th {
-
-  color: #647d9b;
-
+  color: var(--cor-texto-secundario);
   font-size: 9px;
-
   font-weight: 600;
-
   text-align: left;
-
   padding: 10px 8px;
-
-  background: #f7faff;
-
+  background: var(--cor-fundo-secundario);
 }
 
+/* CÉLULAS */
+
 td {
-
-  border-bottom: 1px solid #edf2f9;
-
-  color: #3e5a7c;
-
+  border-bottom: 1px solid var(--cor-borda);
+  color: var(--cor-texto);
   padding: 10px 8px;
-
   font-size: 10px;
-
 }
 
 tbody tr:last-child td {
-
   border-bottom: 0;
-
 }
 
+/* VEÍCULOS PARADOS */
+
 .tabela__linha--parado>td {
-
-  background-color: #fff0f2;
-
+  background-color: var(--cor-fundo-erro);
 }
 
 .tabela__linha--parado>td:first-child {
-
-  box-shadow: inset 3px 0 0 #e54860;
-
+  box-shadow: inset 3px 0 0 var(--cor-erro);
 }
+
+/* SITUAÇÕES */
 
 .situacao {
-
   display: inline-block;
-
   padding: 5px 8px;
-
   border-radius: 20px;
-
   font-size: 9px;
-
   font-weight: 600;
-
 }
+
+/* EM ANDAMENTO */
 
 .situacao--andamento {
-
-  color: #1468ca;
-
-  background: #e3f0ff;
-
+  color: var(--cor-primaria);
+  background: var(--cor-primaria-suave);
 }
+
+/* CONCLUÍDO */
 
 .situacao--concluido {
-
-  color: #07855f;
-
-  background: #dff8ee;
-
+  color: var(--cor-sucesso);
+  background: var(--cor-fundo-sucesso);
 }
 
+/* PARADO */
+
 .situacao--parado {
-
-  background-color: #ffe1e5;
-
-  color: #c62842;
-
+  background-color: var(--cor-fundo-erro);
+  color: var(--cor-erro);
   font-weight: 700;
-
 }
