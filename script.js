@@ -837,3 +837,55 @@ async function integrarDashboardComAPI() {
 
 // Executa a integração assim que a tela carregar
 document.addEventListener("DOMContentLoaded", integrarDashboardComAPI);
+
+// =========================================================================
+// INTEGRAÇÃO DA TABELA DE VEÍCULOS (API RENDER -> ABA MOVIMENTAÇÕES)
+// =========================================================================
+async function carregarVeiculosDaAPI() {
+    const URL_VEICULOS = "https://emap-cco-backend.onrender.com/api/v1/veiculos";
+    try {
+        const resposta = await fetch(URL_VEICULOS);
+        if (!resposta.ok) throw new Error(`Erro HTTP: ${resposta.status}`);
+
+        const listaVeiculos = await resposta.json();
+        console.log("🚛 Veículos recebidos da API:", listaVeiculos);
+
+        const tbody = document.getElementById("movement-rows");
+        const contador = document.getElementById("movement-count");
+
+        if (tbody && listaVeiculos.length > 0) {
+            tbody.innerHTML = listaVeiculos.map(v => `
+                <tr>
+                    <td><strong>${v.placa}</strong></td>
+                    <td>PRESTIGE DIVA</td>
+                    <td>B${v.berco_destino}-P1</td>
+                    <td>${v.berco_destino}</td>
+                    <td>${v.ticket}</td>
+                    <td>—</td>
+                    <td>${v.transportadora}</td>
+                    <td>—</td>
+                    <td>6</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td>Não</td>
+                    <td>—</td>
+                    <td>${v.tempo_permanencia} min</td>
+                    <td>${v.etapa}</td>
+                    <td><span class="situacao situacao--andamento">Em operação</span></td>
+                </tr>
+            `).join("");
+
+            if (contador) {
+                contador.textContent = `${listaVeiculos.length} veículo(s) ativo(s) carregado(s) da API`;
+            }
+        }
+    } catch (erro) {
+        console.error("❌ Erro ao carregar veículos da API:", erro);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", carregarVeiculosDaAPI);
