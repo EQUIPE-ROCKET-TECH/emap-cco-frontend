@@ -730,7 +730,7 @@ if (window.Chart && chartCanvas) {
 // INTEGRAÇÃO COM A API DO BACK-END (FASTAPI - CCO ITAQUI)
 // =========================================================================
 async function integrarDashboardComAPI() {
-    const URL_API = "http://127.0.0.1:8000/api/v1/dashboard/resumo";
+    const URL_API = "https://emap-cco-backend.onrender.com/api/v1/dashboard/resumo";
 
     try {
         const resposta = await fetch(URL_API);
