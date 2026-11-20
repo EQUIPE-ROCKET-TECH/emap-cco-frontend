@@ -27,6 +27,26 @@
     padding: 12px;
     border-radius: 10px;
     background-color: var(--cor-superficie);
+    cursor: pointer !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.alertas__item * {
+    cursor: pointer !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+}
+
+.alertas__item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.12);
+    background-color: #FEE2E2 !important;
+}
+
+.alertas__item:active {
+    transform: translateY(0) scale(0.995);
 }
 
 .alertas__item--critico {
@@ -36,6 +56,21 @@
 
 .alertas__item--normal {
     border-left: 3px solid var(--cor-sucesso);
+    cursor: default !important;
+}
+
+.alertas__item--normal:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background-color: var(--cor-superficie) !important;
+}
+
+/* Modo escuro para os cards de alerta */
+body.tema--escuro .alertas__item:hover,
+[data-theme="dark"] .alertas__item:hover,
+.dark .alertas__item:hover {
+    background-color: rgba(220, 38, 38, 0.25) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .alertas__icone {
